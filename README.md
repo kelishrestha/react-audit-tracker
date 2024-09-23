@@ -1,50 +1,32 @@
-# React + TypeScript + Vite
+# Audit Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This application will trace through the pull requests of the repositories of an organization and evaluates if they are viable for security audits.
 
-Currently, two official plugins are available:
+### What can you do with this application?
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+For all the operations below, you need to first authorize this application to use data of your repositories through github app. Once you have allowed access to read/write to your organization's repositories, you will be able to fully use this application features.
 
-## Expanding the ESLint configuration
+Below are the features provided by this application:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+1. View all pull requests(PRs) throughout your organization in one place.
+2. List all PRs that can be chosen for security audits within organization and selected repositories.
+3. View all the PRs that can be edited automatically to be able to use for listing in security audits.
 
-- Configure the top-level `parserOptions` property like this:
+### Technology and Dependencies
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+This package is based on Node v18. The technologies used are:
+
+1. React v18.3
+2. Vite v5.4
+
+### Start Server
+
+```sh
+yarn dev
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### Build production
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```sh
+yarn build
 ```
